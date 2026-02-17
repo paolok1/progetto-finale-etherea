@@ -24,7 +24,7 @@ body{
     overflow-x: hidden;
 }
 
-h1, h2, h3, .navbar-brand, .nav-item {
+h1, h2, h3, .navbar-brand, .nav-item{
     font-family: var(--font-heading);
     color: var(--deep-velvet);
     text-transform: uppercase;

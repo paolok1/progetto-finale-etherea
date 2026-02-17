@@ -36,14 +36,27 @@
               Ciao Utente!
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item  d-flex ms-auto" href="{{ route('login') }}">Accedi</a></li>
+              <li><a class="dropdown-item  d-flex" href="{{ route('login') }}">Accedi</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item  d-flex ms-auto" href="{{ route('register') }}">Registrati</a></li>
+              <li><a class="dropdown-item  d-flex" href="{{ route('register') }}">Registrati</a></li>
             </ul>
           </li>
-        @endauth
-      </ul>
-
+          <li class="nav-item dropdown text-center d-flex mr-auto">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"
+            aria-expanded="false">
+              Categorie
+            </a>
+            <ul class="dropdown-menu">
+              @foreach ($categories as $category)
+              <li><a class="dropdown-item d-flex fs-6 ms-auto" href="{{ route('byCategory', ['category'=>$category]) }}">{{ $category->name }}</a></li>
+              @if(!$loop->last)
+              <li><hr class="dropdown-divider"></li>
+              @endif
+              @endforeach
+            </ul>
+          </li>
+          @endauth
+        </ul>
         <form class="d-flex ms-auto" role="search" style="max-width: 300px; width: 100%;">
           <input class="form-control me-2" type="search" placeholder="Cerca..." aria-label="Search"/>
           <button class="btn btn-outline-light" type="submit">Cerca</button>
@@ -51,6 +64,9 @@
     </div>
   </div>      
 </nav>
+                
+                
+
 
 
               
