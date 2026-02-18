@@ -1,5 +1,18 @@
 <x-layout>
     <div class="container-fluid text-center">
+
+            @if (session()->has('message'))
+                <div class="alert alert-danger text-center shadow rounded w-50">
+                {{ session('message') }}
+                </div>
+            @endif
+
+            @if (session()->has('errorMessage'))
+                <div class="alert alert-danger text-center shadow rounded w-50">
+                    {{ session('errorMessage') }}
+                </div>
+            @endif
+            
         <div class="row vh-100 justify-content-center align-items-center">
             <div class="col-12">
                 <h1 class="display-4">ETHEREA</h1>

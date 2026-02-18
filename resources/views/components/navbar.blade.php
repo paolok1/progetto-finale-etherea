@@ -14,6 +14,15 @@
         <li class="nav-item"><a class="dropdown-item" href="{{ route('article.index') }}">Tutti gli articoli</a></li>
 
         @auth
+          @if(Auth::user()->is_revisor)
+            <li class="nav-item">
+              <a href="{{ route('revisor.index') }}" class="nav-link btn btn-sensual btn-sm position-relative w-sm-25">
+                Zona revisore
+                <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">{{ \App\Models\Article::toBeRevisedCount() }}</span>
+              </a>
+            </li>
+          @endif
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Ciao, {{ Auth::user()->name }}

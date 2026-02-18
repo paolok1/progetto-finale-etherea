@@ -62,9 +62,15 @@
         ><i class="fab fa-github"></i
       ></a>
     </section>
+    <div class="col-md-5">
+      <h5 class="fw-bold">Vuoi diventare revisore?</h5>
+      <p class="text-muted small">Cliccando il bottone in basso farai richiesta al nostro Admin</p>
+      <a href="{{ route('become.revisor') }}" class="btn btn-sensual btn-lg shadow-sm">
+        <i class="fas fa-user-check me-2"></i>Diventa revisore
+      </a>
+    </div>
     <!-- Section: Social media -->
   </div>
-  <!-- Grid container -->
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
