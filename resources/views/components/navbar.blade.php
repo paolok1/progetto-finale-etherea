@@ -57,7 +57,7 @@
             </a>
             <ul class="dropdown-menu">
               @foreach ($categories as $category)
-              <li><a class="dropdown-item d-flex fs-6 ms-auto" href="{{ route('byCategory', ['category'=>$category]) }}">{{ $category->name }}</a></li>
+              <li><a class="dropdown-item d-flex ms-auto" href="{{ route('byCategory', ['category'=>$category]) }}">{{ $category->name }}</a></li>
               @if(!$loop->last)
               <li><hr class="dropdown-divider"></li>
               @endif
@@ -66,9 +66,9 @@
           </li>
           @endauth
         </ul>
-        <form class="d-flex ms-auto" role="search" style="max-width: 300px; width: 100%;">
-          <input class="form-control me-2" type="search" placeholder="Cerca..." aria-label="Search"/>
-          <button class="btn btn-outline-light" type="submit">Cerca</button>
+        <form class="d-flex ms-auto search-bar" role="search" action="{{ route('article.search') }}" method="GET" style="max-width: 300px; width: 100%;">
+          <input class="form-control me-2" type="search" name="query" placeholder="Cerca..." aria-label="Search"/>
+          <button class="btn btn-sensual input-group-text" type="submit">Cerca</button>
         </form>
     </div>
   </div>      

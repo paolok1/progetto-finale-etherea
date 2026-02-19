@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
+            $table->id();
             $table->string('title');
             $table->text('description');
             $table->float('price',8, 2);
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             // relazione con User
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('categories');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

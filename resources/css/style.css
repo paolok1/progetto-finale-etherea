@@ -24,21 +24,23 @@ body{
     overflow-x: hidden;
 }
 
-h1, h2, h3, .navbar-brand, .nav-item{
+h1, h2, h3, .navbar-brand, .nav-item, .dropdown-item, .dropdown-menu, .nav-link, .search-bar{
     font-family: var(--font-heading);
     color: var(--deep-velvet);
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-size: x-small;
 }
 
 
-.btn-sensual {
+.btn-sensual, .search-bar{
     background-color: var(--deep-velvet);
     color: whitesmoke;
     border: none;
     padding: 12px 30px;
     transition: all 0.4s ease;
     border-radius: 2px; 
+    font-size: x-small;
 }
 
 .btn-sensual:hover {

@@ -6,7 +6,7 @@ use App\Http\Controllers\RevisorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
-
+Route::get('/search/article', [PublicController::class, 'searchArticles'])->name('article.search');
 // ArticleController
 Route::get('/create/article', [ArticleController::class, 'create'])->name('create.article');
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
