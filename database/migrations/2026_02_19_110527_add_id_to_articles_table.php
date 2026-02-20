@@ -9,7 +9,7 @@ return new class extends Migration
 public function up(): void
 {
     Schema::table('articles', function (Blueprint $table) {
-        // 'first()' mette la colonna all'inizio della tabella
+        
         $table->id()->first(); 
     });
 }

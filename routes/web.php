@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 Route::get('/search/article', [PublicController::class, 'searchArticles'])->name('article.search');
+// cambio lingua
+Route::post('/lingua/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');
 // ArticleController
 Route::get('/create/article', [ArticleController::class, 'create'])->name('create.article');
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');

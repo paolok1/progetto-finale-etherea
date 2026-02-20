@@ -17,6 +17,10 @@
 }
 
 body{
+    background-image: url(/public/backgroundEtherea.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-color: var(--rose-dust);
     color: var(--deep-velvet);
     font-family: var(--font-body);
@@ -24,18 +28,19 @@ body{
     overflow-x: hidden;
 }
 
-h1, h2, h3, .navbar-brand, .nav-item, .dropdown-item, .dropdown-menu, .nav-link, .search-bar{
+h1, h2, h3, h4, h5, h6, p, .navbar-brand, .nav-item, .dropdown-item, .dropdown-menu, .nav-link, .search-bar{
     font-family: var(--font-heading);
     color: var(--deep-velvet);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: x-small;
+    color: #9b5463;
 }
 
 
 .btn-sensual, .search-bar{
     background-color: var(--deep-velvet);
-    color: whitesmoke;
+    color: rgba(200, 50, 130, 0.873);
     border: none;
     padding: 12px 30px;
     transition: all 0.4s ease;
@@ -47,4 +52,12 @@ h1, h2, h3, .navbar-brand, .nav-item, .dropdown-item, .dropdown-menu, .nav-link,
     background-color: var(--rose-dust);
     color: var(--skin-tone);
     letter-spacing: 3px;
+}
+
+.img-preview{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60px;
+    width: 60px;
 }

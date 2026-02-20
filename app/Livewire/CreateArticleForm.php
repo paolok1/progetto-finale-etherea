@@ -6,10 +6,11 @@ use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreateArticleForm extends Component
 {
-            // use WithFileUploads;
+            use WithFileUploads;
 
         #[Validate('required|min:5')]
         public $title; 
@@ -34,31 +35,59 @@ class CreateArticleForm extends Component
                 'user_id' => Auth::id()
                 
                 ]);
-                // if (count($this->images) > 0) {
-                //     foreach ($this->images as $image) {
+                if (count($this->images) > 0) {
+                    foreach ($this->images as $image) {
+                    $this->article->images()->create(['path' => $image->store('images', 'public')]);
+                    }
+                    }
+                    session()->flash('success', 'Articolo creato correttamente!');
+                    $this->cleanForm();
 
-                //         $newFileName = "articles/{$this->article->id}";
-                //         $newImage = $this->article->images()->create(['path' => $image->store($newFileName, 'public')]);
+                        
 
-
-                //         RemoveFaces::withChain([
-                //             new ResizeImage($newImage->path, 300, 300),
-                //             new GoogleVisionSafeSearch($newImage->id),
-                //             new GoogleVisionLabelImage($newImage->id)
-
-                //         ])->dispatch($newImage->id);
-                //     }
-                //     File::deleteDirectory(storage_path('/app/livewire-tmp'));
-                // }
-                session()->flash('success', 'Articolo creato correttamente!');
-                $this->cleanForm();
+                        
+                        // RemoveFaces::withChain([
+                            // new ResizeImage($newImage->path, 300, 300),
+                            // new GoogleVisionSafeSearch($newImage->id),
+                            // new GoogleVisionLabelImage($newImage->id)
+                            
+                            // ])->dispatch($newImage->id);
+                            // File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
 
+        protected function cleanForm(){
+            $this->title= '';
+            $this->description= '';
+            $this->category= '';
+            $this->price= '';
+            $this->images= [];
+         }
 
+        public function render()
+        {
+            return view('livewire.create-article-form');
+        }
 
+            public function updatedTemporaryImages()
+            {
+                if ($this->validate([
+                'temporary_images.*'=> 'image|max:1024',
+                'temporary_images'=> 'max:6',
+                ]));
+            {
+            foreach ($this->temporary_images as $image){
+                $this->images[] = $image;
+            }
 
-    public function render()
-    {
-        return view('livewire.create-article-form');
+        }
     }
+
+         public function removeImage($key){
+        if(in_array($key, array_keys($this->images))){
+            unset($this->images[$key]);
+        }
+    }
+        
+
+
 }

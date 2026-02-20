@@ -1,4 +1,4 @@
-<nav class="nav-head navbar" style="background-color: #945259;"> 
+<nav class="nav-head navbar navbar-expand-lg" style="background-color: #945259;"> 
   <div class="container-fluid px-4">
     <a class="navbar-brand" href="{{ route('homepage') }}" style="font-family: 'Cinzel', serif;">Etherea</a>
     
@@ -11,7 +11,9 @@
         <li class="nav-item">
           <a aria-current="page" href="{{ route('homepage') }}" class="nav-link active">Home</a>
         </li>
-        <li class="nav-item"><a class="dropdown-item" href="{{ route('article.index') }}">Tutti gli articoli</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('article.index') }}">Tutti gli articoli</a>
+        </li>
 
         @auth
           @if(Auth::user()->is_revisor)
@@ -42,12 +44,12 @@
         @else
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">
-              Ciao Utente!
+              {{ __('ui.helloUser') }}
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item  d-flex" href="{{ route('login') }}">Accedi</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item  d-flex" href="{{ route('register') }}">Registrati</a></li>
+              <li><a class="dropdown-item  d-flex" href="{{ route('register') }}">{{ __('ui.register') }}</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown text-center d-flex mr-auto">
@@ -57,7 +59,7 @@
             </a>
             <ul class="dropdown-menu">
               @foreach ($categories as $category)
-              <li><a class="dropdown-item d-flex ms-auto" href="{{ route('byCategory', ['category'=>$category]) }}">{{ $category->name }}</a></li>
+              <li><a class="dropdown-item d-flex ms-auto" href="{{ route('byCategory', ['category'=>$category]) }}">{{__('ui.' . $category->name) }}</a></li>
               @if(!$loop->last)
               <li><hr class="dropdown-divider"></li>
               @endif
@@ -71,6 +73,8 @@
           <button class="btn btn-sensual input-group-text" type="submit">Cerca</button>
         </form>
     </div>
+    <x-_locale lang="it" />
+    <x-_locale lang="en" />
   </div>      
 </nav>
                 
