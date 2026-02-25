@@ -1,15 +1,16 @@
 
+  
 
+            <div class="card mx-auto" style="width: 18rem;">
+              <img style="height: 200px; object-fit:cover;" src="{{ $article->images->isNotEmpty() ? Storage::url($article->images->first()->path) : 'https://picsum.photos/200' }}" 
+              class="card-img-top" alt=" Immagine dell'articolo {{ $article->title }}">
+              <div class="card-body">
+                <h4 class="card-title">{{ $article->title }}</h4>
+                <h6 class="card-subtitle">{{ $article->price }} €</h6>
+                <p class="card-text">{{ $article->description }}</p>
+                <a href="{{ route('article.show', compact('article')) }}" class="btn btn-primary">Dettaglio</a>
+                <a href="{{ route('byCategory', ['category' => $article->category]) }}" 
+                  class="btn btn-sensual">{{ $article->category->name }}</a>
+              </div>
+            </div>
 
-<div class="card mx-auto" style="width: 18rem;">
-  <img src="{{ $article->images->isNotEmpty() ? $article->images->first()->getUrl(300, 300) : 'https://picsum.photos/200' }}" 
-  class="card-img-top" alt=" Immagine dell'articolo {{ $article->title }}">
-  <div class="card-body">
-    <h4 class="card-title">{{ $article->title }}</h4>
-    <h6 class="card-subtitle">{{ $article->price }} €</h6>
-    <p class="card-text">{{ $article->description }}</p>
-    <a href="{{ route('article.show', compact('article')) }}" class="btn btn-primary">Dettaglio</a>
-    <a href="{{ route('byCategory', ['category' => $article->category]) }}" 
-      class="btn btn-sensual">{{ $article->category->name }}</a>
-  </div>
-</div>
