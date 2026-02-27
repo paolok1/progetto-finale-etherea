@@ -65,8 +65,8 @@
     <div class="col-md-5">
       <h5 class="fw-bold">Vuoi diventare revisore?</h5>
       <p class="text-muted small">Cliccando il bottone in basso farai richiesta al nostro Admin</p>
-      <a href="{{ route('become.revisor') }}" class="btn btn-sensual btn-lg shadow-sm">
-        <i class="fas fa-user-check me-2"></i>Diventa revisore
+      <a href="{{ route('become.revisor') }}" class="btn">
+        <i class="fas fa-user-check me-2 btn-sensual"></i>Diventa revisore
       </a>
     </div>
     <!-- Section: Social media -->

@@ -28,7 +28,7 @@ body{
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, p, .navbar-brand, .nav-item, .dropdown-item, .dropdown-menu, .nav-link, .search-bar{
+h1, h2, h3, h4, h5, h6, p, .anchor, .navbar-brand, .nav-item, .dropdown-item, .dropdown-menu, .nav-link, .search-bar{
     font-family: var(--font-heading);
     color: var(--deep-velvet);
     text-transform: uppercase;
@@ -36,7 +36,6 @@ h1, h2, h3, h4, h5, h6, p, .navbar-brand, .nav-item, .dropdown-item, .dropdown-m
     font-size: x-small;
     color: #9b5463;
 }
-
 
 .btn-sensual, .search-bar{
     background-color: var(--deep-velvet);

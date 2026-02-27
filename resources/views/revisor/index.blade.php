@@ -2,7 +2,7 @@
     <div class="container-fluid pt-5">
         <div class="row mb-4">
             <div class="col-12 col-md-4">
-                <div class="rounded shadow bg-body-tertiary p-3">
+                <div class="rounded shadow mb-5 p-3">
                     <h1 class="display-6 text-center">Revisor Dashboard</h1>
                 </div>
             </div>
@@ -96,8 +96,8 @@
         @else
         <div class="row justify-content-center align-items-center text-center min-vh-50">
             <div class="col-12">
-                <h1 class="fst-italic display-4">Nessun articolo da revisionare</h1>
-                <a href="{{ route('homepage') }}" class="btn btn-primary mt-3">Torna all'homepage</a>
+                <h1 class="display-6 mt-5">Nessun articolo da revisionare</h1>
+                <a href="{{ route('homepage') }}"class="btn-sensual text-decoration-none" class="btn mt-3">Torna alla Homepage</a>
             </div>
         </div>
         @endif
