@@ -1,24 +1,41 @@
 <x-layout>
+    <style>
+        .carousel-indicators [data-bs-target] {
+        background-color: #000; /* Indicatori scuri per contrasto */
+        border: 1px solid #fff;
+        }
+    </style>
+
     <div class="container pt-5">
         <div class="row justify-content-center align-items-center text-center mb-5">
             <div class="col-12">
-                <h1 class="display-4">Dettaglio dell'articolo: {{ $article->title }}</h1>
+                <h1 class="display-6">Dettaglio: {{ $article->title }}</h1>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 col-md-6 mb-3">
-                @if ($article->images->count() > 0)
-                    <div id="carouselExample" class="carousel slide shadow rounded">
-                            <div class="carousel-inner">
+                @if ($article->images->isNotEmpty())
+                    <div id="carouselExample" class="carousel slide shadow rounded" data-bs-ride="carousel">
+                        
+                        @if($article->images->count() > 1)
+                            <div class="carousel-indicators">
                                 @foreach ($article->images as $key => $image)
-                                    <div class="carousel-item @if ($loop->first) active @endif">
-                                         <img style="height: 300px; object-fit:cover;" src="{{ $article->images->isNotEmpty() ? Storage::url($article->images->first()->path) : 'https://picsum.photos/200' }}" class="d-block w-100 rounded shadow"
-                                            alt="Immagine {{ $key + 1 }} dell'articolo {{ $article->title }}">
-                                    </div>
+                                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ $key }}" class="{{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'true' : 'false' }}" aria-label="Slide {{ $key + 1 }}"></button>
                                 @endforeach
                             </div>
-                    </div>
+                        @endif
+
+                        <div class="carousel-inner">
+                            @foreach ($article->images as $key => $image)
+                                <div class="carousel-item @if ($loop->first) active @endif">
+                                    <img style="height: 400px; object-fit:cover;" 
+                                         src="{{ Storage::url($image->path) }}" 
+                                         class="d-block w-100 rounded"
+                                         alt="Immagine {{ $key + 1 }} dell'articolo {{ $article->title }}">
+                                </div>
+                            @endforeach
+                        </div>
 
                         @if ($article->images->count() > 1)
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -32,19 +49,18 @@
                         @endif
                     </div>
                 @else
-                    <img src="https://picsum.photos/300/300" class="img-fluid rounded shadow" alt="Nessuna foto inserita">
+                    <img src="https://picsum.photos/600/400" class="img-fluid rounded shadow" alt="Nessuna foto">
                 @endif
             </div>
 
             <div class="col-12 col-md-6 text-center">
-                <h2 class="display-5"><span class="fw-bold">Titolo: </span>{{ $article->title }}</h2>
+                <h2 class="display-6"><span class="fw-bold">Titolo: </span>{{ $article->title }}</h2>
                 <div class="d-flex flex-column justify-content-center h-75">
                     <h4 class="fw-bold mt-3">Prezzo: {{ $article->price }} €</h4>
                     <h5 class="mt-3 fw-bold">Descrizione:</h5>
-                    <p class="px-3">{{ $article->description }}</p>
+                    <p class="px-3 text-dark">{{ $article->description }}</p>
                 </div>
             </div>
         </div>
     </div>
-
 </x-layout>
