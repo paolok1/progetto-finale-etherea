@@ -12,14 +12,14 @@
           <a aria-current="page" href="{{ route('homepage') }}" class="nav-link active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('article.index') }}">Tutti gli articoli</a>
+          <a class="nav-link" href="{{ route('article.index') }}">{{ __('ui.allArticles') }}</a>
         </li>
 
         @auth
           @if(Auth::user()->is_revisor)
             <li class="nav-item">
-              <a href="{{ route('revisor.index') }}" class="nav-link btn btn-sensual btn-sm position-relative w-sm-25">
-                Zona revisore
+              <a href="{{ route('revisor.index') }}" class="nav-link position-relative w-sm-25">
+                {{ __('ui.revisor') }}
                 <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">{{ \App\Models\Article::toBeRevisedCount() }}</span>
               </a>
             </li>
@@ -27,7 +27,7 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Ciao, {{ Auth::user()->name }}
+             {{ __('ui.hello') }} {{ Auth::user()->name }}
             </a>
             <ul class="dropdown-menu"> 
               <li>
@@ -36,9 +36,6 @@
               </li>
               <form action="{{ route('logout') }}" method="post" class="d-none" id="form-logout">@csrf</form>   
               <li><a class="dropdown-item" href="{{ route('create.article') }}">Crea articolo</a></li>
-              
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">link</a></li>
             </ul>  
           </li>
         @else
@@ -47,7 +44,7 @@
               {{ __('ui.helloUser') }}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item  d-flex" href="{{ route('login') }}">Accedi</a></li>
+              <li><a class="dropdown-item  d-flex" href="{{ route('login') }}">{{ __('ui.login') }}</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item  d-flex" href="{{ route('register') }}">{{ __('ui.register') }}</a></li>
             </ul>
@@ -55,7 +52,7 @@
           <li class="nav-item dropdown text-center d-flex mr-auto">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"
             aria-expanded="false">
-              Categorie
+              {{ __('ui.categories') }}
             </a>
             <ul class="dropdown-menu">
               @foreach ($categories as $category)
@@ -69,8 +66,8 @@
           @endauth
         </ul>
         <form class="d-flex ms-auto search-bar" role="search" action="{{ route('article.search') }}" method="GET" style="max-width: 300px; width: 100%;">
-          <input class="form-control me-2" type="search" name="query" placeholder="Cerca..." aria-label="Search"/>
-          <button class="btn btn-sensual input-group-text" type="submit">Cerca</button>
+          <input class="form-control me-2" type="search" name="query" placeholder="{{ __('ui.search') }}" aria-label="Search"/>
+          <button class="btn btn-sensual input-group-text" type="submit">{{ __('ui.search') }}</button>
         </form>
     </div>
     <x-_locale lang="it" />

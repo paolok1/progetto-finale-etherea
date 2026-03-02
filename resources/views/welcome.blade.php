@@ -21,8 +21,12 @@
                         <a href="{{ route('create.article') }}" class="btn btn-dark">Pubblica un articolo</a>
                     @endauth
                 </div>
+                <h1 class="testo-apparizione text-center">{{ __('ui.pleasure') }}</h1>
             </div>
         </div>
+
+
+  
 
 @if($lastArticles->count() > 0)
 <div class="row justify-content-center my-4">

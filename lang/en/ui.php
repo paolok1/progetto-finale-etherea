@@ -3,8 +3,12 @@ return[
     'hello'=>'Hello',
     'allArticles'=>'All the articles',
     'helloUser'=>'Hello user',
+    'login'=>'Login',
     'register'=>'Register',
+    'categories'=>'Categories',
+    'search'=>'Search',
     'name'=>'Name',
+    'pleasure'=>'Pleasure all around you',
     'confirmPassword'=>'Confirm Password',
     'Lingerie' => 'Lingerie',
     'Abbigliamento sexy' => 'Sexy clothes',
@@ -13,5 +17,7 @@ return[
     'Attrezzatura' => 'Equipment',
     'Sadomaso' => 'BDSM',
     'Candele profumate ed oli da massaggio' => 'Scented candles and massage oils',
-
+    'show'=>'Nothing to show',
+    'details'=>'Details',
+    'revisor'=>'Revisor area',
 ];
